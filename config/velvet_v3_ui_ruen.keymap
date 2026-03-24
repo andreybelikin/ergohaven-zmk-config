@@ -28,6 +28,16 @@
             release-after-ms = <200>;
         };
 
+        home_row_delay: home_row_delay {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOME_ROW_DELAY";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <350>;
+        };
+
         zip_auto_mouse: zip_auto_mouse {
             compatible = "zmk,input-processor-temp-layer";
             #input-processor-cells = <2>;
@@ -124,7 +134,7 @@
         left_select: left_select {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LS(RS(LEFT_ARROW))>;
+            bindings = <&kp LS(LC(LEFT_ARROW))>;
             label = "LEFT_SELECT";
         };
     };
@@ -134,10 +144,10 @@
 
         en {
             bindings = <
-&kp ESC    &kp Q           &kp W           &kp E        &kp R             &kp T                        &kp Y  &kp U              &kp I        &kp O            &kp P               &kp BSPC
-&kp TAB    &mt LEFT_GUI A  &mt LEFT_ALT S  &mt LCTRL D  &mt LEFT_SHIFT F  &kp G                        &kp H  &mt RIGHT_SHIFT J  &mt RCTRL K  &mt RIGHT_ALT L  &mt RIGHT_GUI SEMI  &kp BSLH
-&kp LSHFT  &kp Z           &kp X           &kp C        &kp V             &kp B                        &kp N  &kp M              &kp COMMA    &kp DOT          &kp SQT             &kp RSHFT
-                           &kp LALT        &kp LGUI     &kp DELETE        &mo 2  &kp SPACE    &kp RET  &mo 3  &none              &kp LBKT     &kp RBKT
+&kp ESC    &kp Q                       &kp W                       &kp E                    &kp R                         &kp T                        &kp Y  &kp U                          &kp I                    &kp O                        &kp P                           &kp BSPC
+&kp TAB    &home_row_delay LEFT_GUI A  &home_row_delay LEFT_ALT S  &home_row_delay LCTRL D  &home_row_delay LEFT_SHIFT F  &kp G                        &kp H  &home_row_delay RIGHT_SHIFT J  &home_row_delay RCTRL K  &home_row_delay RIGHT_ALT L  &home_row_delay RIGHT_GUI SEMI  &kp BSLH
+&kp LSHFT  &kp Z                       &kp X                       &kp C                    &kp V                         &kp B                        &kp N  &kp M                          &kp COMMA                &kp DOT                      &kp SQT                         &kp RSHFT
+                                       &kp LALT                    &kp LGUI                 &kp DELETE                    &mo 2  &kp SPACE    &kp RET  &mo 3  &none                          &kp BACKSPACE            &kp RBKT
             >;
 
             display-name = "Base";
@@ -146,10 +156,10 @@
         ru {
             display-name = "Ru";
             bindings = <
-&kp ESC    &kp RU_CYRILLIC_SHORT_I      &kp RU_CYRILLIC_TSE            &kp RU_CYRILLIC_U         &kp RU_CYRILLIC_KA            &kp RU_CYRILLIC_IE                        &kp RU_CYRILLIC_EN  &kp RU_CYRILLIC_GHE            &kp RU_CYRILLIC_SHA       &kp RU_CYRILLIC_SHCHA         &kp RU_CYRILLIC_ZE             &kp RU_CYRILLIC_HA
-&kp TAB    &mt LEFT_GUI RU_CYRILLIC_EF  &mt LEFT_ALT RU_CYRILLIC_YERU  &mt LCTRL RU_CYRILLIC_VE  &mt LEFT_SHIFT RU_CYRILLIC_A  &kp RU_CYRILLIC_PE                        &kp RU_CYRILLIC_ER  &mt RIGHT_SHIFT RU_CYRILLIC_O  &mt RCTRL RU_CYRILLIC_EL  &mt RIGHT_ALT RU_CYRILLIC_DE  &mt RIGHT_GUI RU_CYRILLIC_ZHE  &kp RU_CYRILLIC_E
-&kp LSHFT  &kp RU_CYRILLIC_YA           &kp RU_CYRILLIC_CHE            &kp RU_CYRILLIC_ES        &kp RU_CYRILLIC_EM            &kp RU_CYRILLIC_I                         &kp RU_CYRILLIC_TE  &kp RU_CYRILLIC_SOFT_SIGN      &kp RU_CYRILLIC_BE        &kp RU_CYRILLIC_YU            &kp RU_CYRILLIC_E              &kp RU_CYRILLIC_IO
-                                        &kp LALT                       &kp LGUI                  &kp DELETE                    &mo 2               &kp SPACE    &kp RET  &mo 4               &none                          &kp BACKSPACE             &kp RU_CYRILLIC_HARD_SIGN
+&kp ESC    &kp RU_CYRILLIC_SHORT_I                  &kp RU_CYRILLIC_TSE                        &kp RU_CYRILLIC_U                     &kp RU_CYRILLIC_KA                        &kp RU_CYRILLIC_IE                        &kp RU_CYRILLIC_EN  &kp RU_CYRILLIC_GHE                        &kp RU_CYRILLIC_SHA                   &kp RU_CYRILLIC_SHCHA                     &kp RU_CYRILLIC_ZE                         &kp RU_CYRILLIC_HA
+&kp TAB    &home_row_delay LEFT_GUI RU_CYRILLIC_EF  &home_row_delay LEFT_ALT RU_CYRILLIC_YERU  &home_row_delay LCTRL RU_CYRILLIC_VE  &home_row_delay LEFT_SHIFT RU_CYRILLIC_A  &kp RU_CYRILLIC_PE                        &kp RU_CYRILLIC_ER  &home_row_delay RIGHT_SHIFT RU_CYRILLIC_O  &home_row_delay RCTRL RU_CYRILLIC_EL  &home_row_delay RIGHT_ALT RU_CYRILLIC_DE  &home_row_delay RIGHT_GUI RU_CYRILLIC_ZHE  &kp RU_CYRILLIC_E
+&kp LSHFT  &kp RU_CYRILLIC_YA                       &kp RU_CYRILLIC_CHE                        &kp RU_CYRILLIC_ES                    &kp RU_CYRILLIC_EM                        &kp RU_CYRILLIC_I                         &kp RU_CYRILLIC_TE  &kp RU_CYRILLIC_SOFT_SIGN                  &kp RU_CYRILLIC_BE                    &kp RU_CYRILLIC_YU                        &kp RU_CYRILLIC_E                          &kp RU_CYRILLIC_IO
+                                                    &kp LALT                                   &kp LGUI                              &kp DELETE                                &mo 2               &kp SPACE    &kp RET  &mo 4               &none                                      &kp BACKSPACE                         &kp RU_CYRILLIC_HARD_SIGN
             >;
         };
 
@@ -198,10 +208,10 @@
 
         mouse {
             bindings = <
-&trans  &trans  &trans    &trans    &double_click  &trans                    &trans  &double_click  &trans    &trans    &trans  &trans
-&trans  &trans  &mkp MB3  &mkp MB2  &mkp MB1       &mo 8                     &mo 8   &mkp MB1       &mkp MB2  &mkp MB3  &trans  &trans
-&trans  &trans  &mkp MB4  &mo 7     &kp K_COPY     &trans                    &trans  &kp K_PASTE    &mo 7     &mkp MB5  &trans  &trans
-                &trans    &trans    &trans         &trans  &trans    &trans  &trans  &trans         &trans    &trans
+&trans  &trans  &trans    &trans    &double_click  &trans                    &trans  &double_click   &trans    &trans    &trans  &trans
+&trans  &trans  &mkp MB3  &mkp MB2  &mkp MB1       &mo 8                     &mo 8   &mkp MB1        &mkp MB2  &mkp MB3  &trans  &trans
+&trans  &trans  &mkp MB4  &mo 7     &kp C_AC_COPY  &trans                    &trans  &kp C_AC_PASTE  &mo 7     &mkp MB5  &trans  &trans
+                &trans    &trans    &trans         &trans  &trans    &trans  &trans  &trans          &trans    &trans
             >;
 
             display-name = "Mouse";
