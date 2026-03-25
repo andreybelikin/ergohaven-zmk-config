@@ -25,7 +25,7 @@
             label = "MOUSE_LAYER";
             bindings = <&mo>;
             #binding-cells = <1>;
-            release-after-ms = <200>;
+            release-after-ms = <250>;
         };
 
         home_row_delay: home_row_delay {
@@ -51,13 +51,13 @@
 
         cmben {
             bindings = <&layer_en>;
-            key-positions = <3 4>;
+            key-positions = <41 40>;
             layers = <1>;
         };
 
         cmbru {
             bindings = <&layer_ru>;
-            key-positions = <3 4>;
+            key-positions = <3 4 40 41>;
             layers = <0>;
         };
     };
@@ -124,18 +124,25 @@
             label = "DOUBLE_CLICK";
         };
 
-        right_select: right_select {
+        php_array: php_array {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp RS(RC(RIGHT))>;
-            label = "RIGHT_SELECT";
+            bindings = <&kp EQUAL &kp GT>;
+            label = "PHP_ARRAY";
         };
 
-        left_select: left_select {
+        php_object: php_object {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LS(LC(LEFT_ARROW))>;
-            label = "LEFT_SELECT";
+            bindings = <&kp MINUS &kp GT>;
+            label = "PHP_OBJECT";
+        };
+
+        ide_search_everywhere: ide_search_everywhere {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_SHIFT &kp LEFT_SHIFT>;
+            label = "IDE_SEARCH_EVERYWHERE";
         };
     };
 
@@ -146,7 +153,7 @@
             bindings = <
 &kp ESC    &kp Q                       &kp W                       &kp E                    &kp R                         &kp T                        &kp Y  &kp U                          &kp I                    &kp O                        &kp P                           &kp BSPC
 &kp TAB    &home_row_delay LEFT_GUI A  &home_row_delay LEFT_ALT S  &home_row_delay LCTRL D  &home_row_delay LEFT_SHIFT F  &kp G                        &kp H  &home_row_delay RIGHT_SHIFT J  &home_row_delay RCTRL K  &home_row_delay RIGHT_ALT L  &home_row_delay RIGHT_GUI SEMI  &kp BSLH
-&kp LSHFT  &kp Z                       &kp X                       &kp C                    &kp V                         &kp B                        &kp N  &kp M                          &kp COMMA                &kp DOT                      &kp SQT                         &kp RSHFT
+&kp LSHFT  &kp Z                       &kp X                       &kp C                    &kp V                         &kp B                        &kp N  &kp M                          &kp COMMA                &kp DOT                      &kp QMARK                       &kp RSHFT
                                        &kp LALT                    &kp LGUI                 &kp DELETE                    &mo 2  &kp SPACE    &kp RET  &mo 3  &none                          &kp BACKSPACE            &kp RBKT
             >;
 
@@ -165,10 +172,10 @@
 
         nav {
             bindings = <
-&trans  &kp N1  &kp HOME  &kp UP          &kp END          &kp N5                          &kp N6         &kp N7        &kp N8        &kp N9        &kp N0         &trans
-&trans  &trans  &kp LEFT  &kp DOWN_ARROW  &kp RIGHT_ARROW  &left_select                    &right_select  &kp NUMBER_4  &kp NUMBER_5  &kp N6        &none          &trans
-&trans  &trans  &kp HOME  &kp INS         &kp END          &kp DEL                         &kp CLCK       &kp N1        &kp NUMBER_2  &kp NUMBER_3  &kp LC(RIGHT)  &trans
-                &trans    &trans          &trans           &trans        &trans    &trans  &mo 5          &trans        &kp N0        &trans
+&trans           &kp N1           &kp HOME            &kp UP          &kp END              &kp PLUS                                  &kp MINUS                &kp N7        &kp N8        &kp N9        &kp N0         &trans
+&kp LA(LS(TAB))  &kp LC(LS(TAB))  &kp LEFT            &kp DOWN_ARROW  &kp RIGHT_ARROW      &kp LS(LC(LEFT_ARROW))                    &kp RS(RC(RIGHT_ARROW))  &kp NUMBER_4  &kp NUMBER_5  &kp N6        &kp LC(TAB)    &kp LA(TAB)
+&trans           &trans           &kp LC(LEFT_ARROW)  &kp INS         &kp LC(RIGHT_ARROW)  &kp ASTERISK                              &kp SLASH                &kp N1        &kp NUMBER_2  &kp NUMBER_3  &kp LC(RIGHT)  &trans
+                                  &trans              &trans          &trans               &trans                  &trans    &trans  &mo 5                    &trans        &kp N0        &trans
             >;
 
             display-name = "Nav";
@@ -176,10 +183,10 @@
 
         sym_en {
             bindings = <
-&trans  &kp HASH   &kp LT    &kp EQUAL  &kp GT    &kp GRAVE                    &kp CARET  &kp DQT   &kp UNDER  &kp SQT   &trans    &trans
-&trans  &kp BSLH   &kp LPAR  &kp MINUS  &kp RPAR  &kp PLUS                     &kp PRCNT  &kp LBRC  &kp SEMI   &kp RBRC  &kp EXCL  &kp QUESTION
-&trans  &kp COMMA  &kp STAR  &kp COLON  &kp FSLH  &kp DLLR                     &kp AT     &kp PIPE  &kp TILDE  &kp AMPS  &kp DOT   &trans
-                   &trans    &trans     &trans    &mo 5      &trans    &trans  &trans     &trans    &kp LBKT   &kp RBKT
+&kp TILDE      &kp EXCL   &kp AT_SIGN       &kp HASH        &kp DOLLAR  &kp PRCNT                           &kp CARET          &kp AMPERSAND  &kp ASTRK        &mt UNDER MINUS    &mt PLUS EQUAL  &trans
+&kp LESS_THAN  &kp COLON  &kp SINGLE_QUOTE  &kp LEFT_BRACE  &kp LPAR    &kp LEFT_BRACKET                    &kp RIGHT_BRACKET  &kp RPAR       &kp RIGHT_BRACE  &kp DOUBLE_QUOTES  &kp SEMI        &kp GREATER_THAN
+&kp RU_NUMERO  &trans     &trans            &kp PIPE        &kp FSLH    &php_array                          &php_object        &kp BACKSLASH  &kp COMMA        &kp DOT            &kp QMARK       &trans
+                          &trans            &trans          &trans      &mo 5             &trans    &trans  &trans             &trans         &kp LBKT         &kp RBKT
             >;
 
             display-name = "Symbols";
@@ -188,18 +195,18 @@
         sym_ru {
             display-name = "Symbols";
             bindings = <
-&kp RU_CYRILLIC_IO  &en HASH          &en LT    &kp EQUAL     &en GT       &en GRAVE                    &en CARET  &kp RU_DQT  &kp UNDER    &en SQT   &trans      &trans
-&kp RU_NUMERO       &kp RU_BACKSLASH  &kp LPAR  &kp MINUS     &kp RPAR     &kp PLUS                     &kp PRCNT  &en LBRC    &kp RU_SEMI  &kp RBRC  &kp EXCL    &kp RU_QMARK
-&trans              &kp RU_COMMA      &kp STAR  &kp RU_COLON  &kp RU_FSLH  &en DLLR                     &en AT     &en PIPE    &en TILDE    &en AMPS  &kp RU_DOT  &trans
-                                      &trans    &trans        &trans       &mo 5      &trans    &trans  &trans     &trans      &en LBKT     &en RBKT
+&kp TILDE      &kp EXCL   &en AT            &en HASH        &en DOLLAR   &kp PRCNT                           &en CARET          &en AMPERSAND  &kp STAR         &mt UNDER MINUS    &mt PLUS EQUAL  &trans
+&en LESS_THAN  &kp COLON  &en SINGLE_QUOTE  &en LEFT_BRACE  &kp LPAR     &en LEFT_BRACKET                    &en RIGHT_BRACKET  &kp RPAR       &en RIGHT_BRACE  &kp DOUBLE_QUOTES  &kp SEMICOLON   &en GREATER_THAN
+&kp RU_NUMERO  &trans     &trans            &kp PIPE        &kp RU_FSLH  &php_array                          &php_object        &kp BSLH       &kp COMMA        &kp DOT            &kp QUESTION    &trans
+                          &trans            &trans          &trans       &mo 5             &trans    &trans  &trans             &trans         &trans           &trans
             >;
         };
 
         adj {
             bindings = <
-&bootloader  &none        &kp F1  &kp F2   &kp F3   &kp F4                   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2      &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR
-&kp C_POWER  &kp C_SLEEP  &kp F5  &kp F6   &kp F7   &kp F8                   &out OUT_BLE  &kp C_VOL_DN  &kp C_MUTE        &kp C_VOL_UP  &none         &studio_unlock
-&none        &none        &kp F9  &kp F10  &kp F11  &kp F12                  &out OUT_USB  &kp C_PREV    &kp C_PLAY_PAUSE  &kp C_NEXT    &none         &none
+&bootloader  &none        &kp F1  &kp F2   &kp F3   &kp F4                   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2      &bt BT_SEL 3  &bt BT_SEL 4     &bt BT_CLR
+&kp C_POWER  &kp C_SLEEP  &kp F5  &kp F6   &kp F7   &kp F8                   &out OUT_BLE  &kp C_VOL_DN  &kp C_MUTE        &kp C_VOL_UP  &kp PRINTSCREEN  &studio_unlock
+&none        &none        &kp F9  &kp F10  &kp F11  &kp F12                  &out OUT_USB  &kp C_PREV    &kp C_PLAY_PAUSE  &kp C_NEXT    &none            &none
                           &none   &none    &none    &none    &none    &none  &none         &none         &none             &none
             >;
 
@@ -208,10 +215,10 @@
 
         mouse {
             bindings = <
-&trans  &trans  &trans    &trans    &double_click  &trans                    &trans  &double_click   &trans    &trans    &trans  &trans
-&trans  &trans  &mkp MB3  &mkp MB2  &mkp MB1       &mo 8                     &mo 8   &mkp MB1        &mkp MB2  &mkp MB3  &trans  &trans
-&trans  &trans  &mkp MB4  &mo 7     &kp C_AC_COPY  &trans                    &trans  &kp C_AC_PASTE  &mo 7     &mkp MB5  &trans  &trans
-                &trans    &trans    &trans         &trans  &trans    &trans  &trans  &trans          &trans    &trans
+&trans  &trans  &trans    &trans    &double_click  &trans                    &trans  &double_click  &trans    &trans    &trans  &trans
+&trans  &trans  &mkp MB3  &mkp MB2  &mkp MB1       &mo 8                     &mo 8   &mkp MB1       &mkp MB2  &mkp MB3  &trans  &trans
+&trans  &trans  &mkp MB4  &mo 7     &kp LC(C)      &trans                    &trans  &kp LC(V)      &mo 7     &mkp MB5  &trans  &trans
+                &trans    &trans    &trans         &trans  &trans    &trans  &trans  &trans         &trans    &trans
             >;
 
             display-name = "Mouse";
@@ -237,6 +244,15 @@
             >;
 
             display-name = "Sniper";
+        };
+
+        ide_shortcuts {
+            bindings = <
+&trans  &trans              &trans      &kp LA(N1)           &kp LS(F6)              &trans                           &trans  &trans  &trans  &trans  &kp LC(LS(K))  &trans
+&trans  &kp LA(LEFT_ARROW)  &kp LA(N8)  &kp LA(RIGHT_ARROW)  &ide_search_everywhere  &kp LA(ENTER)                    &trans  &trans  &trans  &trans  &trans         &trans
+&trans  &trans              &trans      &trans               &trans                  &trans                           &trans  &trans  &trans  &trans  &trans         &trans
+                            &trans      &trans               &trans                  &trans         &trans    &trans  &trans  &trans  &trans  &trans
+            >;
         };
     };
 };
