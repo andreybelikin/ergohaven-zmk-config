@@ -137,14 +137,14 @@
         php_array: php_array {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp EQUAL &kp GT>;
+            bindings = <&kp EQUAL &en GT>;
             label = "PHP_ARRAY";
         };
 
         php_object: php_object {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp MINUS &kp GT>;
+            bindings = <&kp MINUS &en GT>;
             label = "PHP_OBJECT";
         };
 
@@ -153,13 +153,6 @@
             #binding-cells = <0>;
             bindings = <&kp LEFT_SHIFT &kp LEFT_SHIFT>;
             label = "IDE_SEARCH_EVERYWHERE";
-        };
-
-        to_ide_shortcuts: to_ide_shortcuts {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&none>;
-            label = "TO_IDE_SHORTCUTS";
         };
     };
 
@@ -203,7 +196,7 @@
 &kp TILDE      &kp EXCL   &kp AT_SIGN       &kp HASH        &kp DOLLAR  &kp PRCNT                           &kp CARET          &kp AMPERSAND  &kp ASTRK        &mt UNDER MINUS    &mt PLUS EQUAL  &trans
 &kp LESS_THAN  &kp COLON  &kp SINGLE_QUOTE  &kp LEFT_BRACE  &kp LPAR    &kp LEFT_BRACKET                    &kp RIGHT_BRACKET  &kp RPAR       &kp RIGHT_BRACE  &kp DOUBLE_QUOTES  &kp SEMI        &kp GREATER_THAN
 &kp RU_NUMERO  &trans     &trans            &kp PIPE        &kp FSLH    &php_array                          &php_object        &kp BACKSLASH  &kp COMMA        &kp DOT            &kp QMARK       &trans
-                          &trans            &trans          &trans      &mo 5             &trans    &trans  &trans             &trans         &kp LBKT         &kp RBKT
+                          &trans            &trans          &trans      &mo 5             &trans    &trans  &trans             &trans         &trans           &trans
             >;
 
             display-name = "Symbols";
@@ -213,8 +206,8 @@
             display-name = "Symbols";
             bindings = <
 &kp TILDE      &kp EXCL   &en AT            &en HASH        &en DOLLAR   &kp PRCNT                           &en CARET          &en AMPERSAND  &kp STAR         &mt UNDER MINUS    &mt PLUS EQUAL  &trans
-&en LESS_THAN  &kp COLON  &en SINGLE_QUOTE  &en LEFT_BRACE  &kp LPAR     &en LEFT_BRACKET                    &en RIGHT_BRACKET  &kp RPAR       &en RIGHT_BRACE  &kp DOUBLE_QUOTES  &kp SEMICOLON   &en GREATER_THAN
-&kp RU_NUMERO  &trans     &trans            &kp PIPE        &kp RU_FSLH  &php_array                          &php_object        &kp BSLH       &kp COMMA        &kp DOT            &kp QUESTION    &trans
+&en LESS_THAN  &en COLON  &en SINGLE_QUOTE  &en LEFT_BRACE  &kp LPAR     &en LEFT_BRACKET                    &en RIGHT_BRACKET  &kp RPAR       &en RIGHT_BRACE  &en DOUBLE_QUOTES  &en SEMICOLON   &en GREATER_THAN
+&kp RU_NUMERO  &trans     &trans            &en PIPE        &kp RU_FSLH  &php_array                          &php_object        &kp BSLH       &en COMMA        &en DOT            &en QUESTION    &trans
                           &trans            &trans          &trans       &mo 5             &trans    &trans  &trans             &trans         &trans           &trans
             >;
         };
