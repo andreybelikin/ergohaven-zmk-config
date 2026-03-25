@@ -38,6 +38,16 @@
             tapping-term-ms = <350>;
         };
 
+        delete_or_to_ide_shortcuts: delete_or_to_ide_shortcuts {
+            compatible = "zmk,behavior-hold-tap";
+            label = "DELETE_OR_TO_IDE_SHORTCUTS";
+            bindings = <&to>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <250>;
+            flavor = "balanced";
+        };
+
         zip_auto_mouse: zip_auto_mouse {
             compatible = "zmk,input-processor-temp-layer";
             #input-processor-cells = <2>;
@@ -57,7 +67,7 @@
 
         cmbru {
             bindings = <&layer_ru>;
-            key-positions = <3 4 40 41>;
+            key-positions = <40 41>;
             layers = <0>;
         };
     };
@@ -144,6 +154,13 @@
             bindings = <&kp LEFT_SHIFT &kp LEFT_SHIFT>;
             label = "IDE_SEARCH_EVERYWHERE";
         };
+
+        to_ide_shortcuts: to_ide_shortcuts {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none>;
+            label = "TO_IDE_SHORTCUTS";
+        };
     };
 
     keymap {
@@ -151,10 +168,10 @@
 
         en {
             bindings = <
-&kp ESC    &kp Q                       &kp W                       &kp E                    &kp R                         &kp T                        &kp Y  &kp U                          &kp I                    &kp O                        &kp P                           &kp BSPC
-&kp TAB    &home_row_delay LEFT_GUI A  &home_row_delay LEFT_ALT S  &home_row_delay LCTRL D  &home_row_delay LEFT_SHIFT F  &kp G                        &kp H  &home_row_delay RIGHT_SHIFT J  &home_row_delay RCTRL K  &home_row_delay RIGHT_ALT L  &home_row_delay RIGHT_GUI SEMI  &kp BSLH
-&kp LSHFT  &kp Z                       &kp X                       &kp C                    &kp V                         &kp B                        &kp N  &kp M                          &kp COMMA                &kp DOT                      &kp QMARK                       &kp RSHFT
-                                       &kp LALT                    &kp LGUI                 &kp DELETE                    &mo 2  &kp SPACE    &kp RET  &mo 3  &none                          &kp BACKSPACE            &kp RBKT
+&kp ESC    &kp Q                       &kp W                       &kp E                    &kp R                                 &kp T                        &kp Y  &kp U                          &kp I                    &kp O                        &kp P                           &kp BSPC
+&kp TAB    &home_row_delay LEFT_GUI A  &home_row_delay LEFT_ALT S  &home_row_delay LCTRL D  &home_row_delay LEFT_SHIFT F          &kp G                        &kp H  &home_row_delay RIGHT_SHIFT J  &home_row_delay RCTRL K  &home_row_delay RIGHT_ALT L  &home_row_delay RIGHT_GUI SEMI  &kp BSLH
+&kp LSHFT  &kp Z                       &kp X                       &kp C                    &kp V                                 &kp B                        &kp N  &kp M                          &kp COMMA                &kp DOT                      &kp QMARK                       &kp RSHFT
+                                       &kp LALT                    &kp LGUI                 &delete_or_to_ide_shortcuts 9 DELETE  &mo 2  &kp SPACE    &kp RET  &mo 3  &none                          &kp BACKSPACE            &kp RBKT
             >;
 
             display-name = "Base";
@@ -166,7 +183,7 @@
 &kp ESC    &kp RU_CYRILLIC_SHORT_I                  &kp RU_CYRILLIC_TSE                        &kp RU_CYRILLIC_U                     &kp RU_CYRILLIC_KA                        &kp RU_CYRILLIC_IE                        &kp RU_CYRILLIC_EN  &kp RU_CYRILLIC_GHE                        &kp RU_CYRILLIC_SHA                   &kp RU_CYRILLIC_SHCHA                     &kp RU_CYRILLIC_ZE                         &kp RU_CYRILLIC_HA
 &kp TAB    &home_row_delay LEFT_GUI RU_CYRILLIC_EF  &home_row_delay LEFT_ALT RU_CYRILLIC_YERU  &home_row_delay LCTRL RU_CYRILLIC_VE  &home_row_delay LEFT_SHIFT RU_CYRILLIC_A  &kp RU_CYRILLIC_PE                        &kp RU_CYRILLIC_ER  &home_row_delay RIGHT_SHIFT RU_CYRILLIC_O  &home_row_delay RCTRL RU_CYRILLIC_EL  &home_row_delay RIGHT_ALT RU_CYRILLIC_DE  &home_row_delay RIGHT_GUI RU_CYRILLIC_ZHE  &kp RU_CYRILLIC_E
 &kp LSHFT  &kp RU_CYRILLIC_YA                       &kp RU_CYRILLIC_CHE                        &kp RU_CYRILLIC_ES                    &kp RU_CYRILLIC_EM                        &kp RU_CYRILLIC_I                         &kp RU_CYRILLIC_TE  &kp RU_CYRILLIC_SOFT_SIGN                  &kp RU_CYRILLIC_BE                    &kp RU_CYRILLIC_YU                        &kp RU_CYRILLIC_E                          &kp RU_CYRILLIC_IO
-                                                    &kp LALT                                   &kp LGUI                              &kp DELETE                                &mo 2               &kp SPACE    &kp RET  &mo 4               &none                                      &kp BACKSPACE                         &kp RU_CYRILLIC_HARD_SIGN
+                                                    &kp LALT                                   &kp LGUI                              &delete_or_to_ide_shortcuts 9 DELETE      &mo 2               &kp SPACE    &kp RET  &mo 4               &none                                      &kp BACKSPACE                         &kp RU_CYRILLIC_HARD_SIGN
             >;
         };
 
