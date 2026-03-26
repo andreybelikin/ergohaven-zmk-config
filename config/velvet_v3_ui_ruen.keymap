@@ -25,7 +25,7 @@
             label = "MOUSE_LAYER";
             bindings = <&mo>;
             #binding-cells = <1>;
-            release-after-ms = <250>;
+            release-after-ms = <230>;
         };
 
         home_row_delay: home_row_delay {
@@ -41,7 +41,7 @@
         delete_or_to_ide_shortcuts: delete_or_to_ide_shortcuts {
             compatible = "zmk,behavior-hold-tap";
             label = "DELETE_OR_TO_IDE_SHORTCUTS";
-            bindings = <&to>, <&kp>;
+            bindings = <&mo>, <&kp>;
 
             #binding-cells = <2>;
             tapping-term-ms = <250>;
