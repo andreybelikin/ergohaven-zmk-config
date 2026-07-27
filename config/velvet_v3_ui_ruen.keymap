@@ -61,13 +61,13 @@
 
         cmben {
             bindings = <&layer_en>;
-            key-positions = <41 40>;
+            key-positions = <24 35>;
             layers = <1>;
         };
 
         cmbru {
             bindings = <&layer_ru>;
-            key-positions = <40 41>;
+            key-positions = <35 24>;
             layers = <0>;
         };
     };
@@ -175,7 +175,7 @@
             bindings = <
 &kp ESC    &kp RU_CYRILLIC_SHORT_I                  &kp RU_CYRILLIC_TSE                        &kp RU_CYRILLIC_U                     &kp RU_CYRILLIC_KA                        &kp RU_CYRILLIC_IE                        &kp RU_CYRILLIC_EN  &kp RU_CYRILLIC_GHE                        &kp RU_CYRILLIC_SHA                   &kp RU_CYRILLIC_SHCHA                     &kp RU_CYRILLIC_ZE                         &kp RU_CYRILLIC_HA
 &kp TAB    &home_row_delay LEFT_GUI RU_CYRILLIC_EF  &home_row_delay LEFT_ALT RU_CYRILLIC_YERU  &home_row_delay LCTRL RU_CYRILLIC_VE  &home_row_delay LEFT_SHIFT RU_CYRILLIC_A  &kp RU_CYRILLIC_PE                        &kp RU_CYRILLIC_ER  &home_row_delay RIGHT_SHIFT RU_CYRILLIC_O  &home_row_delay RCTRL RU_CYRILLIC_EL  &home_row_delay RIGHT_ALT RU_CYRILLIC_DE  &home_row_delay RIGHT_GUI RU_CYRILLIC_ZHE  &kp RU_CYRILLIC_E
-&kp LSHFT  &kp RU_CYRILLIC_YA                       &kp RU_CYRILLIC_CHE                        &kp RU_CYRILLIC_ES                    &kp RU_CYRILLIC_EM                        &kp RU_CYRILLIC_I                         &kp RU_CYRILLIC_TE  &kp RU_CYRILLIC_SOFT_SIGN                  &kp RU_CYRILLIC_BE                    &kp RU_CYRILLIC_YU                        &kp RU_CYRILLIC_E                          &kp RU_CYRILLIC_IO
+&kp LSHFT  &kp RU_CYRILLIC_YA                       &kp RU_CYRILLIC_CHE                        &kp RU_CYRILLIC_ES                    &kp RU_CYRILLIC_EM                        &kp RU_CYRILLIC_I                         &kp RU_CYRILLIC_TE  &kp RU_CYRILLIC_SOFT_SIGN                  &kp RU_CYRILLIC_BE                    &kp RU_CYRILLIC_YU                        &kp RU_CYRILLIC_E                          &kp RIGHT_SHIFT
                                                     &kp LALT                                   &kp LGUI                              &delete_or_to_ide_shortcuts 9 DELETE      &mo 2               &kp SPACE    &kp RET  &mo 4               &none                                      &kp BACKSPACE                         &kp RU_CYRILLIC_HARD_SIGN
             >;
         };
@@ -258,10 +258,10 @@
 
         ide_shortcuts {
             bindings = <
-&trans  &trans              &trans      &kp LA(N1)           &kp LS(F6)              &trans                           &trans  &trans  &trans  &trans  &kp LC(LS(K))  &trans
-&trans  &kp LA(LEFT_ARROW)  &kp LA(N8)  &kp LA(RIGHT_ARROW)  &ide_search_everywhere  &kp LA(ENTER)                    &trans  &trans  &trans  &trans  &trans         &trans
-&trans  &trans              &trans      &trans               &trans                  &trans                           &trans  &trans  &trans  &trans  &trans         &trans
-                            &trans      &trans               &trans                  &trans         &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans              &trans      &kp LA(N1)           &kp LS(F6)              &trans                           &trans          &trans       &trans  &trans  &kp LC(LS(K))  &trans
+&trans  &kp LA(LEFT_ARROW)  &kp LA(N8)  &kp LA(RIGHT_ARROW)  &ide_search_everywhere  &kp LA(ENTER)                    &kp LA(INSERT)  &kp LS(F10)  &trans  &trans  &trans         &trans
+&trans  &trans              &trans      &trans               &trans                  &trans                           &trans          &trans       &trans  &trans  &trans         &trans
+                            &trans      &trans               &trans                  &trans         &trans    &trans  &trans          &trans       &trans  &trans
             >;
         };
     };
