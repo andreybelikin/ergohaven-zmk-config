@@ -155,6 +155,13 @@
             bindings = <&kp LEFT_SHIFT &kp LEFT_SHIFT>;
             label = "IDE_SEARCH_EVERYWHERE";
         };
+
+        new_macro: new_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none>;
+            label = "NEW_MACRO";
+        };
     };
 
     keymap {
