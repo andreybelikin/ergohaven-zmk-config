@@ -36,7 +36,7 @@
 
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <280>;
+            tapping-term-ms = <220>;
         };
 
         delete_or_to_ide_shortcuts: delete_or_to_ide_shortcuts {
