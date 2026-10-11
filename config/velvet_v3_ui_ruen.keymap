@@ -35,8 +35,9 @@
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
-            flavor = "hold-preferred";
+            flavor = "balanced";
             tapping-term-ms = <220>;
+            require-prior-idle-ms = <100>;
         };
 
         delete_or_to_ide_shortcuts: delete_or_to_ide_shortcuts {
